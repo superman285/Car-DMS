@@ -1,0 +1,28 @@
+
+header {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 9;
+    height: 100px;
+    width: 100%;
+    min-width: 1280px;
+    background: #212121;
+}
+img {
+    width: 4rem;
+    height: 4rem;
+    margin-left: 1.5rem;
+}
+.logotxt {
+    margin-left: 2rem;
+}
+.logotxt p {
+    color: lightgrey;
+    font-size: 1.5rem;
+    margin: 0;
+}
+.logotxt span {
+    color: wheat;
+}

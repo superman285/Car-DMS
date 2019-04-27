@@ -1,0 +1,31 @@
+
+
+{% extends 'layout.njk' %}
+
+{% block body %}
+{% block css %}
+<link rel="stylesheet" href="/css/login.css" />
+{% endblock %}
+
+<main>
+    <div class="form-wrap">
+        <p class="form-title">Merceds-Benz</p>
+        <form action="">
+
+            <div class="input-field inputNum">
+                <input id="phonenumber" type="text">
+                <label for="phonenumber">PhoneNumber</label>
+            </div>
+
+            <div class="input-field inputPwd">
+                <input id="password" type="password">
+                <label for="password">Password</label>
+            </div>
+
+            <a class="waves-effect waves-light btn loginBtn">马上登录</a>
+
+        </form>
+    </div>
+
+</main>
+{% endblock %}

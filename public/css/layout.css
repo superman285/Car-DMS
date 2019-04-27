@@ -1,0 +1,114 @@
+/* ========== *\
+   通用
+\* ========== */
+main {
+    display: flex;
+    width: 100%;
+    min-width: 1280px;
+    min-height: calc(100vh - 164px);
+    margin-top: 100px;
+    margin-bottom: 64px;
+}
+
+aside {
+    position: fixed;
+    left: 0;
+    height: calc(100% - 164px);
+    width: 15%;
+    min-width: 192px;
+    background: #212121;
+}
+
+aside a {
+    display: block;
+    color: darkgrey;
+    text-align: center;
+    padding: 1rem;
+}
+
+aside a.active {
+    background: dimgrey;
+}
+
+.main {
+    margin-left: 16%;
+    padding: 2rem;
+    overflow: auto;
+}
+
+.main-title {
+    color: #212121;
+    font-size: 1.4rem;
+}
+
+table.cluetable,table.usertable{
+    margin-top: 2rem;
+    width: 75vw;
+    min-width: 800px;
+    border: 1px solid lightgrey;
+}
+
+a.btn {
+    width: 100%;
+    background: #212121;
+}
+a.btn:hover {
+    background: dimgrey;
+}
+
+/* ========== *\
+   用户模块
+\* ========== */
+.usercreate-form,.useredit-form {
+    width: 50vw;
+}
+a.saveBtn {
+    margin-top: 4rem;
+}
+
+/* ========== *\
+   线索模块
+\* ========== */
+
+.forms-wrap {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+    width: 80vw;
+    min-width: 1024px;
+}
+.forms-wrap form {
+    flex: 0.45;
+    padding: 2rem;
+    background: #f6f6f6;
+    height: 40rem;
+    overflow: auto;
+}
+
+.forms-wrap label {
+    font-size: 1.2rem;
+    color: #212121!important;
+}
+label.userState {
+    font-size: 1rem!important;
+}
+
+.userState,.inputSaler,.remark{
+    margin-top: 2rem;
+}
+
+.tracklist p{
+    margin: .2rem 0!important;
+}
+.tracklist li {
+    margin: 1rem 0;
+}
+
+.input-field.note {
+    margin-top: 3rem;
+}
+
+a.infoaddBtn,a.trackaddBtn {
+    margin-top: 2rem;
+}
+

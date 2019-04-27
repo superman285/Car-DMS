@@ -1,0 +1,45 @@
+{% extends 'clue_layout.njk' %}
+
+
+
+{% block main %}
+<section class="main">
+    <a href="#" class="main-title">线索管理</a>
+    <table class="striped highlight centered cluetable">
+        <thead>
+        <tr>
+            <th>姓名</th>
+            <th>电话</th>
+            <th>来源</th>
+            <th>创建时间</th>
+            <th>跟踪销售</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>客户1</td>
+            <td>1301111</td>
+            <td>baidu</td>
+            <td>2019/03/16 18:50:00</td>
+            <td>陈奕迅</td>
+            <td>意向一般</td>
+            <td><a href="#">跟踪</a></td>
+        </tr>
+        <tr>
+            <td>客户2</td>
+            <td>1871231412</td>
+            <td>baidu</td>
+            <td>2019/03/16 18:52:00</td>
+            <td>陈奕迅</td>
+            <td>完成销售</td>
+            <td><a href="#">跟踪</a></td>
+        </tr>
+
+        </tbody>
+    </table>
+</section>
+
+{% endblock %}

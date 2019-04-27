@@ -1,0 +1,18 @@
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+{% block css %}
+<link rel="stylesheet" href="/css/layout.css" />
+{% endblock %}
+
+<main class="blbody">
+    <aside>
+        <a href="/uli">人员管理</a>
+        <a href="/cli" class="active">线索管理</a>
+    </aside>
+    {% block main %}
+    {% endblock %}
+</main>
+
+{% endblock %}

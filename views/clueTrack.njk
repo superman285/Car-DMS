@@ -1,0 +1,65 @@
+{% extends 'clue_layout.njk' %}
+
+
+
+{% block main %}
+<section class="main">
+    <a href="/cli" class="main-title">返回线索列表&nbsp;&nbsp;>></a>
+
+
+    <div class="forms-wrap">
+        <form action="" class="form-info">
+            <p>客户名称：{{customer}}</p>
+            <p>联系电话：{{phone}}</p>
+            <p>线索来源：{{clue}}</p>
+            <p>创建时间：{{createtime}}</p>
+
+            <label class="userState">用户状态</label>
+            <select class="browser-default userstate-select">
+                <option value="" disabled selected>选择用户状态</option>
+                <option value="1">意向一般</option>
+                <option value="2">完成销售</option>
+            </select>
+            <div class="input-field inputSaler">
+                <input placeholder="" id="saler" type="text">
+                <label for="saler">当前分配销售：</label>
+            </div>
+
+            <div class="input-field remark">
+                <textarea placeholder="输入备注" id="remark" class="materialize-textarea"></textarea>
+                <label for="remark">备注</label>
+            </div>
+
+            <a class="waves-effect waves-light btn infoaddBtn">添加</a>
+        </form>
+
+        <form action="" class="form-track">
+
+            <ul class="tracklist">
+                <li>
+                    <p class="time">2019/05/01 12:00:00</p>
+                    <p class="track-content">跟踪内容1</p>
+                </li>
+                <li>
+                    <p class="time">2019/05/01 12:00:00</p>
+                    <p class="track-content">跟踪内容2</p>
+                </li>
+                <li>
+                    <p class="time">2019/05/01 12:00:00</p>
+                    <p class="track-content">跟踪内容3</p>
+                </li>
+
+            </ul>
+
+            <div class="input-field note">
+                <textarea placeholder="输入跟踪记录" id="note" class="materialize-textarea"></textarea>
+                <label for="note">添加记录：</label>
+            </div>
+
+            <a class="waves-effect waves-light btn trackaddBtn">添加</a>
+        </form>
+    </div>
+
+</section>
+
+{% endblock %}

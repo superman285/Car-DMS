@@ -1,0 +1,31 @@
+{% extends 'user_layout.njk' %}
+
+
+{% block main %}
+<section class="main">
+    <a href="/uli" class="main-title">返回用户列表&nbsp;&nbsp;>></a>
+
+    <form action="" class="useredit-form">
+        <div class="input-field inputName">
+            <input id="name" type="text">
+            <label for="name">姓名</label>
+        </div>
+        <div class="input-field inputNum">
+            <input id="phonenumber" type="text">
+            <label for="phonenumber">电话</label>
+        </div>
+        <div class="input-field inputPwd">
+            <input id="password" type="password">
+            <label for="password">密码</label>
+        </div>
+        <label>角色</label>
+        <select class="browser-default">
+            <option value="" disabled selected>选择角色类型</option>
+            <option value="1">管理员</option>
+            <option value="2">销售</option>
+        </select>
+        <a class="waves-effect waves-light btn saveBtn">保存</a>
+    </form>
+
+</section>
+{% endblock %}
