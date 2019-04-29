@@ -42,6 +42,6 @@ a.raceBtn:hover {
 
 .right {
     flex: .5;
-    background: url("/img/benzcar.png") 0 -3rem;
+    background: url("/public/img/benzcar.png") 0 -3rem;
     background-size: cover;
 }

@@ -1,11 +1,21 @@
 {% block css %}
-<link rel="stylesheet" href="/css/header.css" />
+<link rel="stylesheet" href="/public/css/header.css" />
 {% endblock %}
 
 <header>
-    <img src="/img/benzlogo.png" alt="benzlogo">
+    <img src="/public/img/benzlogo.png" alt="benzlogo">
     <div class="logotxt">
         <p>Mercedes-Benz</p>
         <span>The best or nothing.</span>
     </div>
+
+    {% if login %}
+
+    <span class="username">{{username}}</span>
+    <a href="/logout" class="logout">退出</a>
+
+    {% else %}
+    <span class="guest">游客</span>
+    {% endif %}
+
 </header>

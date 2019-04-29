@@ -12,27 +12,3 @@ class UserModel extends Base {
 module.exports = UserModel;
 
 
-/*
-module.exports = {
-    createUser:async (data)=>{
-        let createRes = await knex('user').insert({
-            name: data.name,
-            phone: data.phone,
-            password: data.password,
-            role: data.role,
-            created_time: data.created_time,
-            is_deleted: data.is_deleted
-        });
-        return createRes;
-    },
-    getUser:async ()=>{
-        let getRes = await knex('user').select();
-        return getRes;
-    },
-    editUser: ()=>{
-
-    },
-    delUser: ()=>{
-
-    }
-}*/

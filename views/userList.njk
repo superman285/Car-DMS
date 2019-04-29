@@ -1,10 +1,10 @@
-{% extends 'user_layout.njk' %}
+{% extends './public/user_layout.njk' %}
 
 
 
 {% block main %}
 <section class="main">
-    <a href="#" class="main-title">新增人员&nbsp;&nbsp;>></a>
+    <a href="/uc" class="main-title">新增人员&nbsp;&nbsp;>></a>
     <table class="striped highlight centered usertable">
         <thead>
         <tr>
@@ -16,24 +16,12 @@
         </tr>
         </thead>
 
-        <tbody>
-        <tr>
-            <td>周杰伦</td>
-            <td>1301111</td>
-            <td>管理员</td>
-            <td>2019/03/16 18:50:00</td>
-            <td><a href="#">编辑</a></td>
-        </tr>
-        <tr>
-            <td>陈奕迅</td>
-            <td>1871231412</td>
-            <td>销售</td>
-            <td>2019/03/16 18:52:00</td>
-            <td><a href="#">编辑</a></td>
-        </tr>
+        <tbody class="userlist-tbody">
 
         </tbody>
     </table>
 </section>
+
+<script src="../dist/userlist.js"></script>
 
 {% endblock %}

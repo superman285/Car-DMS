@@ -7,6 +7,8 @@ var nunjucks = require('nunjucks');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var user_apiRouter = require('./routes/user_api');
+var clue_apiRouter = require('./routes/user_api');
 
 var app = express();
 
@@ -22,10 +24,14 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname)));
+
+
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/oldusers', usersRouter);
+app.use('/user', user_apiRouter);
+app.use('/clue', clue_apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

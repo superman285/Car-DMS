@@ -1,7 +1,7 @@
 main {
     height: calc(100vh - 64px);
     min-width: 1280px;
-    background: url("/img/benzbg.jpg");
+    background: url("/public/img/benzbg.jpg");
     background-size: cover;
     overflow: hidden;
 }

@@ -1,4 +1,4 @@
-{% extends 'user_layout.njk' %}
+{% extends './public/user_layout.njk' %}
 
 
 {% block main %}
@@ -7,25 +7,32 @@
 
     <form action="" class="useredit-form">
         <div class="input-field inputName">
-            <input id="name" type="text">
+            <input id="name" type="text" value={{name}}>
             <label for="name">姓名</label>
         </div>
         <div class="input-field inputNum">
-            <input id="phonenumber" type="text">
+            <input id="phonenumber" type="text" value={{phone}}>
             <label for="phonenumber">电话</label>
         </div>
         <div class="input-field inputPwd">
-            <input id="password" type="password">
+            <input id="password" type="password" value={{password}}>
             <label for="password">密码</label>
         </div>
         <label>角色</label>
-        <select class="browser-default">
-            <option value="" disabled selected>选择角色类型</option>
-            <option value="1">管理员</option>
+        <select class="browser-default inputRole">
+            <option value="" disabled>选择角色类型</option>
+            {% if role == "管理员" %}
+            <option value="1" selected>管理员</option>
             <option value="2">销售</option>
+            {% else %}
+            <option value="1">管理员</option>
+            <option value="2" selected>销售</option>
+            {% endif %}
         </select>
         <a class="waves-effect waves-light btn saveBtn">保存</a>
     </form>
-
 </section>
+
+<script src="../dist/useredit.js"></script>
+
 {% endblock %}

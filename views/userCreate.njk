@@ -1,4 +1,4 @@
-{% extends 'user_layout.njk' %}
+{% extends './public/user_layout.njk' %}
 
 
 {% block main %}
@@ -19,7 +19,7 @@
             <label for="password">密码</label>
         </div>
         <label>角色</label>
-        <select class="browser-default">
+        <select class="browser-default inputRole">
             <option value="" disabled selected>选择角色类型</option>
             <option value="1">管理员</option>
             <option value="2">销售</option>
@@ -28,4 +28,7 @@
     </form>
 
 </section>
+
+<script src="../dist/usercreate.js"></script>
+
 {% endblock %}
