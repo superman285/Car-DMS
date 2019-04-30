@@ -1,6 +1,5 @@
 const ClueModel = require('../models/clueModel.js');
 const clueInstance = new ClueModel();
-const {encrypt} = require('../utils/crypto_token');
 
 module.exports = {
     allClue: async ()=>{

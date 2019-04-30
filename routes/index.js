@@ -3,7 +3,7 @@ var router = express.Router();
 const axios = require('axios');
 
 //middleware
-var check = (req,res,next)=>{
+var checkLogin = (req,res,next)=>{
     if (req.cookies.name) {
         console.log('有名字了，可以继续');
         next();
@@ -94,16 +94,32 @@ router.get('/ue',async function(req, res, next) {
     });
 });
 
-router.get('/uli',check,function(req, res, next) {
+router.get('/uli',checkLogin,function(req, res, next) {
     res.render('userList',{
         login: true,
         username: req.cookies.name,
     });
 });
-router.get('/cli',check,function(req, res, next) {
+router.get('/cli',checkLogin,async function(req, res, next) {
+
+    let allRes = await axios({
+        method: 'GET',
+        url:'http://localhost:3000/clue/all',
+    });
+    console.log('allclue',allRes.data.result);
+    /*let alluserRes = await axios({
+        method: 'GET',
+        url
+    })*/
+
+    let items = allRes.data.result? allRes.data.result:[];
+
+    console.log('items',items);
+    
     res.render('clueList',{
         login: true,
         username: req.cookies.name,
+        items
     });
 });
 

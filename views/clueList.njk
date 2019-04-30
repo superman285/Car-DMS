@@ -19,7 +19,24 @@
         </thead>
 
         <tbody>
+
+
+        {% for item in items %}
         <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.phone}}</td>
+            <td>{{item.utm}}</td>
+            <td>{{item.created_time.replace('T',' ').replace('.000Z','')}}</td>
+            <td>{{item.user_id}}</td>
+            <td>{{item.status}}</td>
+            <td><a href="/ct?id={{item.id}}">跟踪</a></td>
+        </tr>
+        {% else %}
+
+        {% endfor %}
+
+
+        <!--<tr>
             <td>客户1</td>
             <td>1301111</td>
             <td>baidu</td>
@@ -36,7 +53,7 @@
             <td>陈奕迅</td>
             <td>完成销售</td>
             <td><a href="#">跟踪</a></td>
-        </tr>
+        </tr>-->
 
         </tbody>
     </table>

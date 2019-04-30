@@ -8,7 +8,7 @@ var nunjucks = require('nunjucks');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var user_apiRouter = require('./routes/user_api');
-var clue_apiRouter = require('./routes/user_api');
+var clue_apiRouter = require('./routes/clue_api');
 
 var app = express();
 
