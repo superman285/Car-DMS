@@ -8,10 +8,10 @@
 
     <div class="forms-wrap">
         <form action="" class="form-info">
-            <p>客户名称：{{customer}}</p>
+            <p>客户名称：{{name}}</p>
             <p>联系电话：{{phone}}</p>
-            <p>线索来源：{{clue}}</p>
-            <p>创建时间：{{createtime}}</p>
+            <p>线索来源：{{utm}}</p>
+            <p>创建时间：{{created_time.replace('T',' ').replace('.000Z','')}}</p>
 
             <label class="userState">用户状态</label>
             <select class="browser-default userstate-select">
@@ -21,10 +21,20 @@
                 <option value="3">很有意向</option>
                 <option value="4">完成销售</option>
             </select>
-            <div class="input-field inputSaler">
-                <input placeholder="" id="saler" type="text">
+
+            <label class="saler">当前分配销售</label>
+            <select class="browser-default saler-select">
+                <option value="" disabled selected>选择销售</option>
+                <option value="1">陈奕迅</option>
+                <option value="2">周杰伦</option>
+                <option value="3">方文山</option>
+                <option value="4">周润发</option>
+            </select>
+
+            <!--<div class="input-field inputSaler">
+                <input placeholder="" id="saler" type="text" value="{{saler}}">
                 <label for="saler">当前分配销售：</label>
-            </div>
+            </div>-->
 
             <div class="input-field remark">
                 <textarea placeholder="输入备注" id="remark" class="materialize-textarea"></textarea>

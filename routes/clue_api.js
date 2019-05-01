@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-let {allClue,getClue,createClue,editClue,delClue} = require('../controllers/clue');
+let {allClue,getClue,createClue,editClue,delClue,getSaler} = require('../controllers/clue');
 
 
 router.get('/all', async (req, res, next)=> {
     let result = await allClue();
     console.log('clueapi',result);
-    result.forEach()
+
     res.send({
         status: 0,
         result

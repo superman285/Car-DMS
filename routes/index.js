@@ -107,14 +107,8 @@ router.get('/cli',checkLogin,async function(req, res, next) {
         url:'http://localhost:3000/clue/all',
     });
     console.log('allclue',allRes.data.result);
-    /*let alluserRes = await axios({
-        method: 'GET',
-        url
-    })*/
 
     let items = allRes.data.result? allRes.data.result:[];
-
-    console.log('items',items);
     
     res.render('clueList',{
         login: true,
@@ -127,12 +121,26 @@ router.get('/uc', function(req, res, next) {
     res.render('userCreate');
 });
 
-router.get('/ct', function(req, res, next) {
+router.get('/ct', async function(req, res, next) {
+
+    let clueid = req.query.id;
+
+        let getRes = await axios({
+            method: 'GET',
+            url:'http://localhost:3000/clue/get',
+            params: {
+                id: clueid,
+            }
+        });
+        var {name,phone,utm,created_time,saler} = getRes.data.result[0];
+        console.log('renderCT',getRes.data.result);
+
     res.render('clueTrack',{
-        customer:'周杰伦',
-        phone:'130111',
-        clue: 'baidu',
-        createtime: '2019/04/01 12:00:00'
+        name,
+        phone,
+        utm,
+        created_time,
+        saler
     });
 });
 

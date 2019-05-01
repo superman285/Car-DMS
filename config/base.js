@@ -19,6 +19,9 @@ class Base {
     delete(id){
         return knex(this.table).where('id','=',id).del();
     }
+    getSaler(){
+        return knex('user').join('clue','user.id','=','clue.user_id').select('clue.id','user.name');
+    }
 }
 
 module.exports = Base;
