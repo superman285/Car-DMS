@@ -136,6 +136,7 @@ router.get('/ct', checkLogin,async function (req, res, next) {
         }
     });
     let salersList = salersRes.data.result;
+    console.log('salerslist',salersList);
 
     let logsRes = await axios({
         method: 'GET',
@@ -144,7 +145,6 @@ router.get('/ct', checkLogin,async function (req, res, next) {
             clue_id: clueid
         }
     });
-    console.log('logloglogRes', logsRes.data.result);
 
     let logs = logsRes.data.result;
 

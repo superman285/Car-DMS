@@ -8,6 +8,7 @@ let loginBtn = document.querySelector(".loginBtn");
 
 
 loginBtn.onclick = async ()=>{
+    console.log('点击登录');
 
     let [phone,password] = [loginNum.value,loginPwd.value];
 
@@ -25,7 +26,6 @@ loginBtn.onclick = async ()=>{
         if (getRes.data.result.length) {
             console.log('数据集',getRes.data.result);
             location.href="/bl";
-
         }else{
             alert('账号或密码错误!')
         }

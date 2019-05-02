@@ -9,24 +9,27 @@ router.post('/login', async(req, res, next)=> {
     let params = req.body;
     let result = await login(params);
     console.log('加密phone,pwd,id|name',result);
-    res.cookie("phone",result[0],{maxAge: 1800000, httpOnly: true});
-    res.cookie("password",result[1],{maxAge: 1800000, httpOnly: true});
-    res.cookie("id",result[2],{maxAge: 1800000, httpOnly: true});
-    res.cookie("name",result[3],{maxAge: 1800000, httpOnly: true});
-    res.cookie("role",result[4],{maxAge: 1800000, httpOnly: true});
 
-    let [srcPhone,srcPwd,srcID,name,role] = [decrypt(String(result[0])),decrypt(String(result[1])),decrypt(String(result[2])),result[3],result[4]];
+    if (result) {
+        res.cookie("phone",result[0],{maxAge: 1800000, httpOnly: true});
+        res.cookie("password",result[1],{maxAge: 1800000, httpOnly: true});
+        res.cookie("id",result[2],{maxAge: 1800000, httpOnly: true});
+        res.cookie("name",result[3],{maxAge: 1800000, httpOnly: true});
+        res.cookie("role",result[4],{maxAge: 1800000, httpOnly: true});
 
-    res.locals = {
-        phone:srcPhone,
-        password: srcPwd,
-        id: srcID,
-        name,
-        role
-    };
+        let [srcPhone,srcPwd,srcID,name,role] = [decrypt(String(result[0])),decrypt(String(result[1])),decrypt(String(result[2])),result[3],result[4]];
 
-    console.log('reslocals',res.locals);
-    
+        res.locals = {
+            phone:srcPhone,
+            password: srcPwd,
+            id: srcID,
+            name,
+            role
+        };
+
+        console.log('reslocals',res.locals);
+    }
+
     res.send({
         status: 0,
         result
