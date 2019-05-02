@@ -13,6 +13,7 @@ module.exports = {
         userlist: path.join(__dirname, './public/js/userlist.js'),
         login: path.join(__dirname, './public/js/login.js'),
         appoint: path.join(__dirname, './public/js/appoint.js'),
+        clueedit: path.join(__dirname, './public/js/clueEdit.js'),
     },
     output: {
         path: path.resolve('dist'),

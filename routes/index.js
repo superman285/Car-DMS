@@ -73,7 +73,7 @@ router.get('/ue',async function(req, res, next) {
     let userid = req.query.id;
     console.log('userid',userid);
 
-    try {
+
         let getRes = await axios({
             method: 'GET',
             url:'http://localhost:3000/user/get',
@@ -83,9 +83,10 @@ router.get('/ue',async function(req, res, next) {
         });
         var {name,phone,password,role} = getRes.data.result[0];
         console.log('getresult',getRes.data.result[0]);
-    } catch (err) {
-        console.log('err',err);
-    }
+
+
+
+    
     res.render('userEdit',{
         name,
         phone,
@@ -94,7 +95,8 @@ router.get('/ue',async function(req, res, next) {
     });
 });
 
-router.get('/uli',checkLogin,function(req, res, next) {
+router.get('/uli',checkLogin,async function(req, res, next) {
+
     res.render('userList',{
         login: true,
         username: req.cookies.name,
@@ -132,15 +134,28 @@ router.get('/ct', async function(req, res, next) {
                 id: clueid,
             }
         });
-        var {name,phone,utm,created_time,saler} = getRes.data.result[0];
+        var {name,phone,utm,created_time,status,remark,saler} = getRes.data.result[0];
         console.log('renderCT',getRes.data.result);
+
+    let salersRes = await axios({
+        method: 'GET',
+        url:'http://localhost:3000/user/get',
+        params: {
+            role: '销售',
+        }
+    });
+    let salersList = salersRes.data.result;
+    console.log('渲染啊',salersList);
 
     res.render('clueTrack',{
         name,
         phone,
         utm,
         created_time,
-        saler
+        status,
+        remark,
+        saler,
+        salersList
     });
 });
 

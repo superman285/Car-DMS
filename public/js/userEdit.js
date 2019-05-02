@@ -1,4 +1,4 @@
-import axios from  'axios';
+import axios from 'axios';
 
 let inputName = document.querySelector(".inputName>input"),
     inputNum = document.querySelector(".inputNum>input"),
@@ -34,7 +34,6 @@ saveBtn.onclick = async ()=>{
         window.location.href="/uli"
 
     }else{
-
         alert('请完善所有信息!')
     }
 };
