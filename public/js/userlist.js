@@ -6,7 +6,6 @@ let userbody = document.querySelector(".userlist-tbody");
             method: "GET",
             url: '/user/all',
         });
-    console.log('result222safas22',userlistRes.data.result)
 
         let {result} = userlistRes.data;
         var userdataStr = ``;
@@ -25,29 +24,9 @@ let userbody = document.querySelector(".userlist-tbody");
                     </td>
                 </tr>`
 
-            /*var delBtn = document.querySelector("a[data-idx]="+id);
-            delBtn.onclick = async ()=> {
-                console.log('点击删除');
-                let delRes = await axios({
-                    method: 'POST',
-                    url: '/user/del',
-                    data: {
-                        id
-                    }
-                });
-                console.log('delRes',delRes);
-            }*/
-
         });
 
     userbody.innerHTML += userdataStr;
-
-
-    console.dir(userbody);
-    console.log('inner',userbody.innerHTML);
-
-
-
 })();
 
 

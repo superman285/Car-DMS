@@ -31,8 +31,6 @@ raceBtn.onclick = async ()=>{
                 created_time
             }
         });
-
-        console.log('+clueres',createRes);
         if (createRes.data.status===0) {
             alert('抢占成功!')
         }

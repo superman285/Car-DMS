@@ -3,6 +3,7 @@ var router = express.Router();
 const axios = require('axios');
 
 //verify middleware
+//login
 var checkLogin = (req, res, next) => {
     if (req.cookies.name) {
         console.log('有名字了，可以继续');
@@ -12,22 +13,18 @@ var checkLogin = (req, res, next) => {
         res.redirect('bl')
     }
 };
-
+//role permission
 var checkPermission = (req,res,next)=>{
-
     if (req.cookies.role==="管理员"){
-        console.log('权限足够');
         next();
     }else {
-        console.log('权限不够');
         res.redirect('forbid');
     }
-
-}
+};
 
 router.get('/forbid',(req,res,next)=>{
     res.render('forbidden');
-})
+});
 
 /* GET landing page. */
 router.get('/', function (req, res, next) {
@@ -69,13 +66,10 @@ router.get('/uli', checkLogin, async function (req, res, next) {
     });
 });
 router.get('/cli', checkLogin, async function (req, res, next) {
-
     let allRes = await axios({
         method: 'GET',
         url: 'http://localhost:3000/clue/all',
     });
-    console.log('allclue', allRes.data.result);
-
     let items = allRes.data.result ? allRes.data.result : [];
 
     res.render('clueList', {
@@ -94,8 +88,6 @@ router.get('/uc', checkLogin,checkPermission,function (req, res, next) {
 
 router.get('/ue',checkLogin,checkPermission,async function (req, res, next) {
     let userid = req.query.id;
-    console.log('userid', userid);
-
     let getRes = await axios({
         method: 'GET',
         url: 'http://localhost:3000/user/get',
@@ -117,7 +109,6 @@ router.get('/ue',checkLogin,checkPermission,async function (req, res, next) {
 router.get('/ct', checkLogin,async function (req, res, next) {
 
     let clueid = req.query.id;
-
     let getRes = await axios({
         method: 'GET',
         url: 'http://localhost:3000/clue/get',
@@ -126,7 +117,6 @@ router.get('/ct', checkLogin,async function (req, res, next) {
         }
     });
     var {name, phone, utm, created_time, status, remark, saler} = getRes.data.result[0];
-    console.log('renderCT', getRes.data.result);
 
     let salersRes = await axios({
         method: 'GET',
@@ -136,7 +126,6 @@ router.get('/ct', checkLogin,async function (req, res, next) {
         }
     });
     let salersList = salersRes.data.result;
-    console.log('salerslist',salersList);
 
     let logsRes = await axios({
         method: 'GET',

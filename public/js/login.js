@@ -8,7 +8,6 @@ let loginBtn = document.querySelector(".loginBtn");
 
 
 loginBtn.onclick = async ()=>{
-    console.log('点击登录');
 
     let [phone,password] = [loginNum.value,loginPwd.value];
 
@@ -22,7 +21,6 @@ loginBtn.onclick = async ()=>{
             }
         });
 
-        console.log('getRes',getRes);
         if (getRes.data.result.length) {
             console.log('数据集',getRes.data.result);
             location.href="/bl";
@@ -33,6 +31,4 @@ loginBtn.onclick = async ()=>{
         alert('请输入完整信息!')
     }
 
-
-    
 };

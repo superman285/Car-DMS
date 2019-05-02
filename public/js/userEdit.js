@@ -30,9 +30,7 @@ saveBtn.onclick = async ()=>{
             }
         });
 
-        console.log('createRes',result);
         window.location.href="/uli"
-
     }else{
         alert('请完善所有信息!')
     }

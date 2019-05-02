@@ -6,8 +6,6 @@ module.exports = {
         let allClueRes = await clueInstance.all();
 
         let salerRes = await clueInstance.getSaler();
-        console.log('controller来的',salerRes);
-        console.log('constorller来的',allClueRes[0].name);
 
         allClueRes.map(clue=>{
             salerRes.map(saler=>{
@@ -18,8 +16,6 @@ module.exports = {
                 }
             })
         });
-
-        console.log('controller来的new',allClueRes);
 
         return allClueRes;
     },

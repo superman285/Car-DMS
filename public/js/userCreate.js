@@ -24,15 +24,6 @@ saveBtn.onclick = async ()=>{
                 created_time
             }
         });
-        
-        /*let result = await axios({
-            method: "get",
-            url,
-            params:{
-                address,
-            }
-        });*/
-        console.log('createRes',result);
 
         window.location.href="/uli"
     }else{
