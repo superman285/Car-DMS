@@ -9,6 +9,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var user_apiRouter = require('./routes/user_api');
 var clue_apiRouter = require('./routes/clue_api');
+var cluelog_apiRouter = require('./routes/cluelog_api');
 
 var app = express();
 
@@ -32,6 +33,7 @@ app.use('/', indexRouter);
 app.use('/oldusers', usersRouter);
 app.use('/user', user_apiRouter);
 app.use('/clue', clue_apiRouter);
+app.use('/cluelog', cluelog_apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

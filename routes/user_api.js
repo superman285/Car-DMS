@@ -13,14 +13,16 @@ router.post('/login', async(req, res, next)=> {
     res.cookie("password",result[1],{maxAge: 1800000, httpOnly: true});
     res.cookie("id",result[2],{maxAge: 1800000, httpOnly: true});
     res.cookie("name",result[3],{maxAge: 1800000, httpOnly: true});
+    res.cookie("role",result[4],{maxAge: 1800000, httpOnly: true});
 
-    let [srcPhone,srcPwd,srcID,name] = [decrypt(String(result[0])),decrypt(String(result[1])),decrypt(String(result[2])),result[3]];
+    let [srcPhone,srcPwd,srcID,name,role] = [decrypt(String(result[0])),decrypt(String(result[1])),decrypt(String(result[2])),result[3],result[4]];
 
     res.locals = {
         phone:srcPhone,
         password: srcPwd,
         id: srcID,
-        name
+        name,
+        role
     };
 
     console.log('reslocals',res.locals);

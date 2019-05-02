@@ -7,7 +7,28 @@
     <a href="/cli" class="main-title">返回线索列表&nbsp;&nbsp;>></a>
 
     <div class="forms-wrap">
-        <form action="" class="form-info">
+
+        <form action="" class="form-track">
+
+            <ul class="tracklist">
+                {% for log in logs %}
+                <li>
+                    <p class="time">{{log.created_time.replace('T',' ').replace('.000Z','')}}</p>
+                    <p class="track-content">{{log.content}}</p>
+                </li>
+                {% endfor %}
+
+            </ul>
+
+            <div class="input-field note">
+                <textarea placeholder="输入跟踪记录" id="note" class="materialize-textarea"></textarea>
+                <label for="note">添加记录：</label>
+            </div>
+
+            <a class="waves-effect waves-light btn trackaddBtn">添加</a>
+        </form>
+
+        <form action="" style="visibility: visible" class="form-info">
             <p>客户名称：{{name}}</p>
             <p>联系电话：{{phone}}</p>
             <p>线索来源：{{utm}}</p>
@@ -40,6 +61,7 @@
             </select>
 
             <label class="saler">当前分配销售</label>
+            {% if permission%}
             <select class="browser-default saler-select">
                 {% if saler==undefined %}
                 <option value="" disabled selected>选择销售</option>
@@ -57,17 +79,28 @@
                 {% endfor %}
                 {% endif %}
 
-
-
-                <!--<option value="2">周杰伦</option>
-                <option value="3">方文山</option>
-                <option value="4">周润发</option>-->
             </select>
+            {% else %}
+            <select class="browser-default saler-select" disabled>
+                {% if saler==undefined %}
+                <option value="" disabled selected>选择销售</option>
+                {% for showsaler in salersList %}
+                <option value="{{showsaler.id}}">{{showsaler.name}}</option>
+                {% endfor %}
+                {% else %}
+                <option value="" disabled>选择销售</option>
+                {% for showsaler in salersList %}
+                {% if showsaler==saler %}
+                <option value="{{showsaler.id}}" selected>{{showsaler.name}}</option>
+                {% else %}
+                <option value="{{showsaler.id}}">{{showsaler.name}}</option>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
 
-            <!--<div class="input-field inputSaler">
-                <input placeholder="" id="saler" type="text" value="{{saler}}">
-                <label for="saler">当前分配销售：</label>
-            </div>-->
+            </select>
+            {% endif %}
+
 
             <div class="input-field remark">
                 <textarea placeholder="输入备注" id="remark" class="materialize-textarea">{{remark}}</textarea>
@@ -77,31 +110,8 @@
             <a class="waves-effect waves-light btn infoaddBtn">添加</a>
         </form>
 
-        <form action="" class="form-track">
 
-            <ul class="tracklist">
-                <li>
-                    <p class="time">2019/05/01 12:00:00</p>
-                    <p class="track-content">跟踪内容1</p>
-                </li>
-                <li>
-                    <p class="time">2019/05/01 12:00:00</p>
-                    <p class="track-content">跟踪内容2</p>
-                </li>
-                <li>
-                    <p class="time">2019/05/01 12:00:00</p>
-                    <p class="track-content">跟踪内容3</p>
-                </li>
 
-            </ul>
-
-            <div class="input-field note">
-                <textarea placeholder="输入跟踪记录" id="note" class="materialize-textarea"></textarea>
-                <label for="note">添加记录：</label>
-            </div>
-
-            <a class="waves-effect waves-light btn trackaddBtn">添加</a>
-        </form>
     </div>
 
 </section>
